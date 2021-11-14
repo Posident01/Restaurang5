@@ -7,11 +7,20 @@ namespace Compro2
     {
         public static void Main(string[] args)
         {
+            Console.Clear();
+
+            bool again = true , success;
+
+            int select;
+
+while(again){
+
             string[] menu = { "1.Rice Chiken.", "2.Khao mun kai.", "3.Kao ka moo.", "4.Noodle Ped", "5.Pad ka prao." };
             int[] Price = { 40, 50 };
             int[] money = new int[2] { 1, 2 };
             int dish, bath = 0;
             int order;
+            
             
             
             // bool success;   // use for no error input
@@ -21,7 +30,7 @@ namespace Compro2
             
             string enter = ""; // not null
 
-            Console.Write("Please Enter Your ID : ");
+            Console.Write("\n\tPlease Enter Your ID : ");
             enter = Console.ReadLine();
             
         
@@ -33,15 +42,15 @@ namespace Compro2
             }
 
             else{   // กรอกผิด
-                Console.WriteLine("The ID and password are entered incorrectly. Please enter again ");
-                Console.Write("Please Enter Your ID : ");
+                Console.WriteLine("\n\tThe ID and password are entered incorrectly. Please enter again ");
+                Console.Write("\n\tPlease Enter Your ID : ");
                 enter = Console.ReadLine();
                 }
 
             }
 
 
-            Console.Write("Please Enter Your Password : ");
+            Console.Write("\n\tPlease Enter Your Password : ");
             enter = Console.ReadLine();
 
             while(true){
@@ -52,8 +61,8 @@ namespace Compro2
             }
 
             else{
-                Console.WriteLine("The ID and password are entered incorrectly. Please enter again ");
-                Console.Write("Please Enter Your Password : ");
+                Console.WriteLine("\n\tThe ID and password are entered incorrectly. Please enter again ");
+                Console.Write("\n\tPlease Enter Your Password : ");
                 enter = Console.ReadLine();
                 }
 
@@ -64,13 +73,13 @@ namespace Compro2
             Console.Clear();
 
           
-                Console.WriteLine("Welcome to Restaurant.");
-                Console.WriteLine("1.Rice Chiken 40 Baht \n2.Khao mun gai 50 Baht\n3.Kao pad moo 40 Baht\n4.Noodle Ped 50 Baht\n5.Pad Ka Prao 40 Baht\n6.Exit. ");
-                Console.Write("Enter your name: ");
+                Console.WriteLine("\n\tWelcome to Restaurant.");
+                Console.WriteLine("\n\t1.Rice Chiken 40 Baht \n\t2.Khao mun gai 50 Baht\n\t3.Kao pad moo 40 Baht\n\t4.Noodle Ped 50 Baht\n\t5.Pad Ka Prao 40 Baht\n\t6.Exit. ");
+                Console.Write("\n\tEnter your name: ");
                 string name = Console.ReadLine();
-                Console.Write("How much many do you have: ");
+                Console.Write("\n\tHow much many do you have: ");
                 money[0] = int.Parse(Console.ReadLine());
-                Console.Write($"{name} please select order: ");
+                Console.Write($"\n\t{name} please select order: ");
                
                
                 order = int.Parse(Console.ReadLine());
@@ -80,7 +89,7 @@ namespace Compro2
                 }
 
 
-                Console.WriteLine($"{name} have {money[0]} baht.");
+                Console.WriteLine($"\n\t{name} have {money[0]} baht.");
 
                 if (order == 1 || order == 3 || order == 5)
                 {
@@ -94,21 +103,51 @@ namespace Compro2
 
                 order--;
 
-                Console.WriteLine("You select {0} this {1} baht.", menu[order], Price[bath]);
+                Console.WriteLine("\n\t{2} select {0} this {1} baht.", menu[order], Price[bath],name);
                                            
-                Console.Write("How many dishes would you like to order? ");
+                Console.Write("\n\tHow many dishes would you like to order? ");
                 dish = int.Parse(Console.ReadLine());
 
                 Class1.cal(dish, money[order], name, Price[bath]);
 
-                        Console.WriteLine("****************************");
+                
+                        Console.WriteLine("\n\t****************************");
 
-            
+                Console.WriteLine("Do you want order agian");
+                Console.WriteLine("1.Yes / 2.No ");
+               
+        success = Int32.TryParse(Console.ReadLine(), out select);   // input select
+        
+        int userInput = 1;
+        while (userInput != 0)
+        {
+        
+        
+        if(select == 1){
+            userInput--;
+            again = true;
+            Console.Clear();
+        }
 
+        else if(select == 2) {
+            userInput--;
+            again = false;
+        }
 
-
+        else{
+            Console.WriteLine("You Must Select 1 Or 2 Only");
+            Console.WriteLine("Do you want order agian");
+            Console.WriteLine("1.Yes / 2.No ");
+               
+            success = Int32.TryParse(Console.ReadLine(), out select);   // input select          
+        }
+        
 
         }
+
+        } //while end
+         
+        }// main end
 
     }
 }
