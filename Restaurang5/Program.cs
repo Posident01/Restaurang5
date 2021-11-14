@@ -28,6 +28,7 @@ while(again){
 
             string[] user = {"Posident","1234"};
             
+            
             string enter = ""; // not null
 
             Console.Write("\n\tPlease Enter Your ID : ");
@@ -77,7 +78,7 @@ while(again){
                 Console.WriteLine("\n\t1.Rice Chiken 40 Baht \n\t2.Khao mun gai 50 Baht\n\t3.Kao pad moo 40 Baht\n\t4.Noodle Ped 50 Baht\n\t5.Pad Ka Prao 40 Baht\n\t6.Exit. ");
                 Console.Write("\n\tEnter your name: ");
                 string name = Console.ReadLine();
-                Console.Write("\n\tHow much many do you have: ");
+                Console.Write("\n\tHow Much Money Do You Have: ");
                 money[0] = int.Parse(Console.ReadLine());
                 Console.Write($"\n\t{name} please select order: ");
                
@@ -105,7 +106,7 @@ while(again){
 
                 Console.WriteLine("\n\t{2} select {0} this {1} baht.", menu[order], Price[bath],name);
                                            
-                Console.Write("\n\tHow many dishes would you like to order? ");
+                Console.Write("\n\tHow Many Dishes Would You Like To Order? ");
                 dish = int.Parse(Console.ReadLine());
 
                 Class1.cal(dish, money[order], name, Price[bath]);
@@ -132,6 +133,9 @@ while(again){
         else if(select == 2) {
             userInput--;
             again = false;
+
+            Console.WriteLine("Thank you for using the service.");
+
         }
 
         else{
@@ -141,11 +145,11 @@ while(again){
                
             success = Int32.TryParse(Console.ReadLine(), out select);   // input select          
         }
-        
+       
 
-        }
+                } // while select end
 
-        } //while end
+            } //while end
          
         }// main end
 
