@@ -6,6 +6,8 @@ namespace cl
     {
         public static void cal(int dish, int money, string name, int Price)
         {
+            //ฟังก์ชั่นคิดเงิน
+            Console.Clear();
             if (money >= dish * Price)
             {
                 int total;
@@ -28,13 +30,18 @@ namespace cl
                 Console.WriteLine("\n\tYour want add money again? ");
                 Console.Write("\n\t1.Yes.\n\t2.No.\n\tYou select 1 or 2: ");
                 int Choseadd = int.Parse(Console.ReadLine());
+
+                
                 if (Choseadd == 1)
                 {
                     do
                     {
+                        //ฟังชั่น เติมเงิน **สำหรับเงินไม่พอ
                         Console.Write("\n\tHow much will you fill: ");
                         money += Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("\n\tYour Wallet {0} Bath", money);
                     } while (money < dish * Price);
+                    
                     int total;
                     total = money - dish * Price;
                     Console.WriteLine("\n\t{1} pay {0} Baht.", money, name);
